@@ -7,35 +7,28 @@ import (
 )
 
 type CD struct {
-	ID     core.InputData
-	curDir string
+	ID  core.InputData
+	dir string
 }
 
 func (c CD) ChangeDirectory(data core.InputData, dir string) {
 
-	fmt.Println(len(data.Result))
 	if (len(data.Result)) == 1 {
-		fmt.Println(dir)
+		curDir := dir
+		fmt.Println(curDir)
+		return
 	}
 
 	value := data.Result[1]
 
 	switch value {
 	case "..":
-		fmt.Println("move to prev (higher) level")
-		prevDir := path.Dir(dir)
-		fmt.Println(prevDir)
-	case "...":
-		fmt.Println("move to Home directory")
-	default:
-		fmt.Println(dir)
-
-		curDir := dir + "/" + data.Result[1]
+		//fmt.Println("move to prev (higher) level")
+		curDir := path.Dir(dir)
 		fmt.Println(curDir)
-		//curDir := []string
-		//dir := append(curDir, i.result[1])
-		//dir := strings.Join((curDir), "/")
-		//fmt.Println(dir)
+	default:
+		newDir := dir + "/" + data.Result[1]
+		curDir := newDir
+		fmt.Println(curDir)
 	}
-
 }
