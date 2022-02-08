@@ -10,7 +10,7 @@ type SZ struct {
 	data []string
 }
 
-func (s SZ) Size(data *core.InputData) {
+func (s SZ) Size(data core.InputData) {
 
 	file, err := os.Open(data.Result[1])
 	if err != nil {
@@ -22,5 +22,5 @@ func (s SZ) Size(data *core.InputData) {
 	if err != nil {
 		return
 	}
-	fmt.Println(stat.Size(), stat.Name())
+	fmt.Println(stat.Name(), stat.Size(), "bytes")
 }
