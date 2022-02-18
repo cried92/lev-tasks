@@ -9,8 +9,9 @@ import (
 type LS struct {
 }
 
+// работает везде
 func (l LS) List() {
-	files, err := ioutil.ReadDir("./")
+	files, err := ioutil.ReadDir(curDir)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -9,6 +9,7 @@ import (
 type CP struct {
 }
 
+// работает только в пределах текущего каталога
 func (c CP) Copy(data core.InputData) {
 
 	srcF := data.Result[1]

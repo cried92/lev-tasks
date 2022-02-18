@@ -10,6 +10,7 @@ type SZ struct {
 	data []string
 }
 
+// работает только в пределах текущего каталога
 func (s SZ) Size(data core.InputData) {
 
 	file, err := os.Open(data.Result[1])

@@ -9,6 +9,7 @@ import (
 type DEL struct {
 }
 
+// работает только в пределах текущего каталога
 func (d DEL) Delete(data core.InputData) {
 	del := os.Remove(data.Result[1])
 	if del != nil {
